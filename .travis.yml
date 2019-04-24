@@ -6,3 +6,4 @@ services:
 script:
 - docker pull quay.io/reactiveops/ci-images:v8.0-stretch
 - docker run -v $(pwd):/travis-rok8s quay.io/reactiveops/ci-images:v8.0-stretch ls /travis-rok8s
+- docker run -v $(pwd):/travis-rok8s quay.io/reactiveops/ci-images:v8.0-stretch cd /travis-rok8s && docker build .
