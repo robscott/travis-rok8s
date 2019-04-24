@@ -5,6 +5,7 @@ services:
 
 script:
 - docker pull quay.io/reactiveops/ci-images:v8.0-stretch
-- alias drun="docker run -v $(pwd):/travis-rok8s quay.io/reactiveops/ci-images:v8.0-stretch /bin/bash -c"
-- drun 'ls /travis-rok8s'
-- drun 'cd /travis-rok8s && docker build .'
+- alias drun="docker run -v $(pwd):/travis-rok8s --env-file <(env) quay.io/reactiveops/ci-images:v8.0-stretch /bin/bash -c"
+- drun "env"
+- drun "ls /travis-rok8s"
+- drun "cd /travis-rok8s && docker build ."
